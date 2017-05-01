@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+	<h:head>
+    	<f:facet name="first">
+        	<meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <title>SLEAM Book | Log In</title>
+		</f:facet>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['icons/hki2.gif']}"/>
+        <style>
+			body 
+			{
+    			background:#e0e0d1;
+				margin:0px;
+    		}
+    		.aa
+    		{
+    			background-color: #00008B;
+    			width:3000px;
+    			height: 70px;
+    		}
+    		.bb
+			{
+				color: #ffffff;
+				font-family: Arial;
+				font-size: 35px;
+				font-weight: bold;
+			}
+			.cc 
+			{
+				color: #2F3030;
+				font-family: Arial;
+				font-size: 20px;
+				font-weight: bold;
+			}
+		    .outputTooltip 
+			{
+				color: #2F3030;
+				font-family: Arial;
+				font-size: 10px;
+				font-weight: bold;
+			}
+			.outputTxt
+			{
+				color: #000000;
+				font-family: Arial;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			.btnClass
+			{
+				background-color: #ff66d9;
+				border-color: #ff66d9;
+			}
+		</style>
+	</h:head>
+	<body> 
+		<h:form id="ee">
+			<p:messages showDetail="true"/> 
+			<p:spacer width="360" height="50"/>
+			<center>
+				<br/><br/><br/><br/><br/>
+				<h:outputText value="Log into SLEAM Book" styleClass="outputTxt"/>
+			    <br/><br/><br/>
+			    <h:panelGrid columns="1" cellpadding="5" styleClass="outputTooltip">
+		        	<p:inputText id="usr" value="#{connectedUserBean.username}" style="width: 270px; height:20px;">
+		        		<p:watermark for="usr" value="UserName"/>
+		        	</p:inputText>
+		        	<p:inputText id="psw" value="#{connectedUserBean.pseudo}" style="width: 270px; height:20px;">
+						<p:watermark for="psw" value="Password"/>
+					</p:inputText>
+					<p:commandButton value="Log In" 
+									 action="#{connectedUserBean.join()}" ajax="false"
+									 style="width: 280px;height: 30px;font-size: 13px"
+									 styleClass="btnClass"/>
+		        	<center>
+		        		<a href="http://localhost:8080/SLEAMBook/faces/SignUp.xhtml" style="font-size: 10px;color: #808080;">Sign up for SLEAM Book</a>
+		        	</center>
+		        </h:panelGrid>
+			</center>
+		</h:form>
+	</body>
+</html>
