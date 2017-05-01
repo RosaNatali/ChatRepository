@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body> 
+
+<ui:composition template="/template.xhtml">
+<ui:define name="title"> mon titre</ui:define>
+
+
+<ui:define name="primaryContent">
+<h:panelGrid columns="2">
+
+
+<h:form id="form1">
+<h:panelGrid columns="2">
+
+<h:outputLabel value="Pseudo: " />
+<h:inputText value="#{connectedUserBean.pseudo}" />
+
+
+<h:commandButton value="Rejoindre" action="#{connectedUserBean.join()}" />
+
+</h:panelGrid>
+
+
+</h:form>
+
+<h:message for="form1"/>
+
+</h:panelGrid>
+</ui:define>
+
+<ui:define name="secondaryContent"></ui:define>
+
+</ui:composition>
+</body> 
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+</h:head> 
+<body>
+
+<table>
+ <tr>
+ <td>
+<h1><ui:insert name="title">default title</ui:insert></h1>
+</td>
+</tr>
+
+<tr>
+<td>
+<ui:insert name="primaryContent"> pcontent </ui:insert>
+</td>
+<td><ui:insert name="secondaryContent"> scontent </ui:insert></td>
+</tr>
+
+</table>
+<ui:insert name="footer">
+<ui:include src="/footer.xhtml" />
+</ui:insert>
+
+
+</body> 
+</html>

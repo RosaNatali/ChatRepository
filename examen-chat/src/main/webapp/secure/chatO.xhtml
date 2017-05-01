@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body> 
+
+<ui:composition template="/template.xhtml">
+<ui:define name="title">Bienvenu #{connectedUserBean.connectedUser.pseudo}</ui:define>
+
+<ui:define name="primaryContent">
+<h:form>
+<h4><h:commandLink value="QUITTER" action="#{connectedUserBean.quitter()}" />  </h4>
+</h:form>
+<br/>
+
+<h:form>
+<h:panelGrid columns="2">
+<h:dataTable value="#{connectedUserBean.users}" var="user">
+
+<h:column>
+<f:facet name="header"> utilisateurs conntectés</f:facet>
+
+#{user.pseudo}
+<h:commandButton value="Contacter" action="#{connectedUserBean.contacter(user)}" />
+
+</h:column>
+
+</h:dataTable>
+
+
+
+
+<h:dataTable value="#{connectedUserBean.connectedUser.messages}" var="message">
+
+<h:column>
+<f:facet name="header">
+MESSAGE
+</f:facet>
+#{message.content}
+</h:column>
+
+<h:column>
+<f:facet name="header">
+EMETTEUR
+</f:facet>
+#{message.sender.pseudo}
+</h:column>
+
+</h:dataTable>
+
+</h:panelGrid>
+</h:form>
+
+<script type="text/javascript">
+<ui:repeat  value="#{connectedUserBean.usersList}" var="u">
+alert("#{u.pseudo}");
+</ui:repeat>
+</script>
+</ui:define>
+
+
+
+</ui:composition>
+</body> 
+</html>
